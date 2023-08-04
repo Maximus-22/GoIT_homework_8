@@ -12,17 +12,17 @@ def get_birthdays_per_week(users: list) -> None:
     current_date = datetime.now()
 
     if current_date.weekday() == 5:
-        beg_day_of_next_week = current_date
+        begin_day_of_next_week = current_date
     elif current_date.weekday() == 6:
-        beg_day_of_next_week = current_date - timedelta(days=1)
+        begin_day_of_next_week = current_date - timedelta(days=1)
     else:
         while current_date.weekday() != 5:
             current_date += timedelta(days=1) 
-            beg_day_of_next_week = current_date
+            begin_day_of_next_week = current_date
 
     days_of_next_week = []
     for day in range(7):
-        days_of_next_week.append(beg_day_of_next_week + timedelta(days=day))
+        days_of_next_week.append(begin_day_of_next_week + timedelta(days=day))
 
     users_birthday_next_week = {}
     for user in users:
